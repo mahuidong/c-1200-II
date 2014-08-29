@@ -20,7 +20,7 @@ namespace UseINDEXVIEW
         private void btn_Create_Click(object sender, EventArgs e)
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-@"server=WIN-GI7E47AND9R\LS;database=db_TomeTwo;uid=sa;pwd=");
+@"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
             SqlConnection P_sc = new SqlConnection(P_Str_ConnectionStr);//创建数据库连接对象
             try
             {
@@ -64,7 +64,7 @@ GROUP BY
         private void btn_Select_Click(object sender, EventArgs e)
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-    @"server=WIN-GI7E47AND9R\LS;database=db_TomeTwo;uid=sa;pwd=");
+    @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL查询字符串
                 "SELECT * FROM VIEW_Student");
             SqlDataAdapter P_SqlDataAdapter = new SqlDataAdapter(//创建数据适配器
@@ -84,7 +84,7 @@ GROUP BY
         private void btn_Delete_Click(object sender, EventArgs e)
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-@"server=WIN-GI7E47AND9R\LS;database=db_TomeTwo;uid=sa;pwd=");
+@"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL字符串
                 @"DROP VIEW VIEW_Student 
 DROP INDEX tb_Student.INDEX_VIEW ");

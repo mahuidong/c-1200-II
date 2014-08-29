@@ -34,7 +34,7 @@ namespace Percent50
         private DataTable GetBook()
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-                @"server=(local);database=db_TomeTwo;uid=sa;pwd=6221131");
+                @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL查询字符串
                 @"SELECT TOP 50 PERCENT 书号,书名,sum(销售数量)as 合计销售数量 
 FROM tb_Book group by 书号,书名,作者 order by 3 desc");
@@ -52,7 +52,7 @@ FROM tb_Book group by 书号,书名,作者 order by 3 desc");
         private DataTable GetMessage()
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-                @"server=(local);database=db_TomeTwo;uid=sa;pwd=6221131");
+                @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL查询字符串
                 "SELECT * FROM tb_Book");
             SqlDataAdapter P_SqlDataAdapter = new SqlDataAdapter(//创建数据适配器

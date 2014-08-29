@@ -44,7 +44,7 @@ namespace FindAndReplace
         private DataTable SelectIndex(string Str)
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-                @"server=(local);database=db_TomeTwo;uid=sa;pwd=6221131");
+                @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL查询字符串
                 @"SELECT 所在学院 , CHARINDEX('{0}' , 所在学院) AS 索引位置 FROM tb_Student",
                 Str);
@@ -62,7 +62,7 @@ namespace FindAndReplace
         private DataTable ReplaceStr(string Str,string Replace)
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-                @"server=(local);database=db_TomeTwo;uid=sa;pwd=6221131");
+                @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL查询字符串
                 "SELECT 所在学院 , REPLACE(所在学院,'{0}','{1}') AS 替换后的信息 FROM tb_Student",
                 Str,Replace);
@@ -80,7 +80,7 @@ namespace FindAndReplace
         private DataTable GetMessage()
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-                @"server=(local);database=db_TomeTwo;uid=sa;pwd=6221131");
+                @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL查询字符串
                 "SELECT 学生姓名,性别,年龄,所在学院 FROM tb_Student");
             SqlDataAdapter P_SqlDataAdapter = new SqlDataAdapter(//创建数据适配器

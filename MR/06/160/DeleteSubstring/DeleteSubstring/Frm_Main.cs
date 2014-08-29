@@ -37,7 +37,7 @@ namespace DeleteSubstring
         private DataTable GetStudent(string Begin,string Count)
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-                @"server=(local);database=db_TomeTwo;uid=sa;pwd=6221131");
+                @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL查询字符串
                 @"SELECT 所在学院 AS 删除字符串前,STUFF(所在学院,{0},{1},'')
 as 删除字符串后 from tb_Student", Begin,Count);
@@ -55,7 +55,7 @@ as 删除字符串后 from tb_Student", Begin,Count);
         private DataTable GetMessage()
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-                @"server=(local);database=db_TomeTwo;uid=sa;pwd=6221131");
+                @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL查询字符串
                 "SELECT * FROM tb_Student");
             SqlDataAdapter P_SqlDataAdapter = new SqlDataAdapter(//创建数据适配器

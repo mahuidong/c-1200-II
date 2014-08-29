@@ -34,7 +34,7 @@ namespace UseHaving
         private DataTable GetStudent()
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-                @"server=WIN-GI7E47AND9R\LS;database=db_TomeTwo;uid=sa;pwd=");
+                @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL查询字符串
                 @"SELECT 所在学院,学生姓名,年龄,(SELECT AVG(年龄) FROM tb_Student) AS 平均年龄
 FROM tb_Student
@@ -54,7 +54,7 @@ HAVING 年龄>(SELECT AVG(年龄) FROM tb_Student)");
         private DataTable GetMessage()
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-                @"server=WIN-GI7E47AND9R\LS;database=db_TomeTwo;uid=sa;pwd=");
+                @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL查询字符串
                 "SELECT * FROM tb_Student");
             SqlDataAdapter P_SqlDataAdapter = new SqlDataAdapter(//创建数据适配器

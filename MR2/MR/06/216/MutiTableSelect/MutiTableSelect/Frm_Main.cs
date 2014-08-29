@@ -31,7 +31,7 @@ namespace MutiTableSelect
         private DataTable GetMessage()
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-                @"server=WIN-GI7E47AND9R\LS;database=db_TomeTwo;uid=sa;pwd=");
+                @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL查询字符串
                 @"SELECT 学生姓名 FROM tb_Student UNION SELECT CONVERT(VARCHAR(20),总分)
 FROM tb_grade WHERE 总分>570

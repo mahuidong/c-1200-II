@@ -134,9 +134,211 @@ SELECT 负责人 FROM tb_EmployeeDepartment WHERE 负责人 IN
 select * from tb_Grade where 高数 < ANY(select 高数 from tb_Grade where 学生姓名 in('王*立','李*丽'));--206
 
 --6.15 子查询
+--207
+SELECT * FROM (SELECT * FROM tb_Student 
+WHERE 学生编号 in(SELECT 学生编号 FROM 
+tb_grade WHERE 软件工程>(SELECT 软件工程 
+FROM tb_Grade WHERE 学生姓名='王*亮'))) AS stu
+ORDER BY stu.学生编号 ;
+--208
+SELECT * FROM tb_Student WHERE 学生编号 IN 
+(SELECT 学生编号 FROM tb_Grade WHERE 高数 > (SELECT AVG(高数) FROM tb_Grade));
+--209
+SELECT st.*,gr.总分 
+FROM
+tb_Student AS st INNER JOIN tb_Grade AS gr ON st.学生编号 = gr.学生编号 
+WHERE 所在学院 = '理学院' AND gr.总分 > 
+ALL 
+(
+SELECT gr.总分 
+FROM tb_Grade AS gr INNER JOIN tb_Student AS st ON st.学生编号 = gr.学生编号
+WHERE st.所在学院 = '管理学院'
+);
+--210
+SELECT st.*,gr.总分 
+FROM
+tb_Student AS st INNER JOIN tb_Grade AS gr ON st.学生编号 = gr.学生编号 
+WHERE 所在学院 = '理学院' AND gr.总分 > 
+ANY
+(
+SELECT AVG(CONVERT(INT,总分))
+FROM tb_Grade
+);
+--211
+SELECT * 
+FROM tb_Student AS st
+WHERE
+EXISTS
+(
+SELECT *
+FROM tb_Grade as gr
+WHERE st.学生编号 = gr.学生编号
+AND gr.总分 > 580
+);
+--212
+SELECT 所在学院,学生姓名,年龄,(SELECT AVG(年龄) FROM tb_Student) AS 平均年龄
+FROM tb_Student
+GROUP BY 所在学院,学生姓名,年龄
+HAVING 年龄>(SELECT AVG(年龄) FROM tb_Student);
 
 --6.16 组合语句
+--215
+SELECT 学生编号,学生姓名,性别,年龄 FROM tb_Student WHERE 所在学院='理学院' UNION 
+SELECT 学生编号,学生姓名,性别,年龄 FROM tb_Student WHERE 学生编号 IN (SELECT 学生编号 FROM tb_Grade
+WHERE 总分 >600);
+--216
+SELECT 学生姓名 FROM tb_Student UNION SELECT CONVERT(VARCHAR(20),总分)
+FROM tb_grade WHERE 总分>570
+UNION SELECT 课程名称 FROM tb_Course;
+--217
+SELECT 年龄 AS 信息 FROM tb_Student UNION 
+SELECT 总分 FROM tb_grade UNION SELECT 课程编号 FROM tb_course ORDER BY 信息 ASC;
+--218 交集
+SELECT 学生编号,学生姓名 FROM tb_Student
+INTERSECT
+SELECT 学生编号,学生姓名 FROM tb_Grade;
+--219 差集
+SELECT 学生编号,学生姓名 FROM tb_Student
+EXCEPT
+SELECT 学生编号,学生姓名 FROM tb_Grade;
+
 
 --6.17 内连接查询
+--220
+SELECT tb_Student.学生姓名,tb_Student.性别,tb_Student.年龄,tb_Grade.总分 FROM
+tb_Student INNER JOIN tb_Grade ON tb_Student.学生编号=tb_Grade.学生编号;
+--221
+SELECT st.学生姓名,st.性别,st.年龄,gr.总分,tc.出勤率 FROM
+tb_Student AS st INNER JOIN tb_grade AS gr ON st.学生编号 = gr.学生编号
+INNER JOIN tb_StudentTimeCard AS tc ON st.学生编号 = tc.学生编号;
+--222
+SELECT st1.* FROM tb_Student AS st1 INNER JOIN tb_Student AS st2
+ON st1.所在学院=st2.所在学院 and st2.学生姓名='李*灵';
+--223
+SELECT st.*,gr.* 
+FROM tb_Student AS st 
+INNER JOIN tb_Grade AS gr 
+ON st.学生编号 = gr.学生编号;
+--224 查询除李*灵所在院系外所有院系学生的信息
+SELECT st1.* FROM tb_Student AS st1 INNER JOIN tb_Student AS st2
+ON st1.所在学院<>st2.所在学院 and st2.学生姓名='李*灵';
+--225
+SELECT 员工信息表.人员编号, 员工信息表.人员姓名 
+FROM 
+tb_employeeperson AS 员工信息表 
+INNER JOIN 
+tb_EmployeeLaborage AS 员工工资表 
+ON 
+员工信息表.人员编号 = 员工工资表.人员编号;
 
 --6.18 外连接查询
+--226
+SELECT st.学生姓名,st.性别,st.年龄,gr.总分 FROM
+tb_Student AS st LEFT OUTER JOIN tb_grade AS gr ON st.学生编号 = gr.学生编号;
+--227
+SELECT st.学生姓名,st.性别,st.年龄,gr.总分 FROM
+tb_Student AS st RIGHT OUTER JOIN tb_Grade AS gr ON st.学生编号 = gr.学生编号;
+--228
+SELECT st.学生姓名,st.性别,st.年龄,gr.总分,tc.出勤率 FROM
+tb_Student AS st LEFT OUTER JOIN tb_Grade AS gr ON st.学生编号 = gr.学生编号
+LEFT OUTER JOIN tb_StudentTimeCard AS tc ON st.学生编号 = tc.学生编号;
+
+--6.19 利用IN进行查询
+--229
+SELECT 学生姓名,性别,年龄 FROM tb_Student WHERE
+学生编号 IN (SELECT 学生编号 FROM tb_Grade WHERE 总分>600);
+--231
+SELECT 学生姓名,性别,年龄 FROM tb_Student WHERE 学生编号 NOT IN 
+(SELECT 学生编号 FROM tb_Grade WHERE 总分>500 AND 总分<600);
+
+--6.20 交叉表查询
+
+--6.21 函数查询
+
+--6.22 索引查询
+--239
+CREATE UNIQUE INDEX index_Student
+ON tb_Student(学生编号);
+DROP INDEX tb_Student.index_Student;
+--240
+CREATE CLUSTERED INDEX index_Student
+ON tb_Student(学生编号);
+DROP INDEX tb_Student.index_Student;
+--241
+SET NUMERIC_ROUNDABORT OFF
+SET ANSI_PADDING,ANSI_WARNINGS,CONCAT_NULL_YIELDS_NULL,
+ARITHABORT,QUOTED_IDENTIFIER,ANSI_NULLS ON;
+CREATE VIEW VIEW_Student
+WITH SCHEMABINDING
+AS
+SELECT
+st.所在学院,
+SUM(CONVERT(INT,总分)) AS 学院总分,
+COUNT_BIG(*) AS 学生数量
+FROM
+dbo.tb_Student AS st,
+dbo.tb_Grade AS gr
+WHERE
+st.学生编号=gr.学生编号
+GROUP BY
+所在学院;
+DROP VIEW VIEW_Student ;
+DROP INDEX tb_Student.INDEX_VIEW;
+--242
+CREATE INDEX index_Grade1
+ON tb_Grade(学生编号);
+DROP INDEX tb_Grade.index_Grade1;
+
+--6.23 应用存储过程
+--243
+SELECT CASE WHEN EXISTS
+(SELECT * FROM sysobjects WHERE id=object_id('dbo.proc_GetStudent') 
+AND XTYPE='p')
+THEN '存在' 
+ELSE '不存在' 
+END;
+CREATE PROC proc_GetStudent
+AS
+SELECT st.学生编号,st.学生姓名,st.年龄,gr.总分 
+FROM tb_Student AS st
+INNER JOIN tb_Grade AS gr
+ON st.学生编号 = gr.学生编号;
+drop proc proc_GetStudent;
+--244
+SELECT CASE WHEN EXISTS
+(SELECT * FROM sysobjects WHERE id=object_id('dbo.proc_InsertStudent') 
+AND XTYPE='p')
+THEN '存在' 
+ELSE '不存在' 
+END;
+CREATE PROC proc_InsertStudent
+@学生编号	int,
+@学生姓名	nvarchar(50),
+@性别	nvarchar(50),
+@出生年月	smalldatetime,
+@年龄	int,
+@所在学院	nvarchar(50),
+@所学专业	nvarchar(50),
+@家庭住址	nvarchar(50),
+@统招否	bit,
+@备注信息	nvarchar(50)
+AS
+INSERT INTO tb_Student(学生编号,学生姓名,性别,出生年月,年龄,所在学院,所学专业,家庭住址,统招否,备注信息)
+values(@学生编号,@学生姓名,@性别,@出生年月,@年龄,@所在学院,@所学专业,@家庭住址,@统招否,@备注信息);
+drop proc proc_InsertStudent;
+
+--6.24 HAVING语句应用
+--246
+SELECT 所在学院,COUNT(*) AS 人数,AVG(年龄) AS 平均年龄
+FROM tb_Student GROUP BY 所在学院 HAVING AVG(年龄) > 22;
+--247
+SELECT 所在学院,COUNT(*) AS 人数,MAX(高数) AS 最高成绩,AVG(高数) AS 高数平均成绩 
+FROM
+tb_student AS st 
+JOIN tb_grade AS gr 
+ON 
+st.学生编号 = gr.学生编号
+GROUP BY 所在学院 
+HAVING AVG(高数) > 60;
+
+

@@ -20,7 +20,7 @@ namespace DynamicTable
         private void Frm_Main_Load(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(//创建数据库连接对象
-                @"Server=WIN-GI7E47AND9R\LS;database=db_TomeTwo;Uid=sa;Pwd=");
+                @"Server=(local)\sqlexpress;database=db_TomeTwo;Uid=sa;pwd=6221131");
             SqlDataAdapter dap = new SqlDataAdapter(//创建数据适配器对象
                 "select * from tb_VenditionInfo", con);
             DataSet ds = new DataSet();//创建数据集
@@ -32,7 +32,7 @@ namespace DynamicTable
         private void btn_Select_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(//创建数据库连接对象
-                @"Server=WIN-GI7E47AND9R\LS;database=db_TomeTwo;Uid=sa;Pwd=");
+                @"Server=(local)\sqlexpress;database=db_TomeTwo;Uid=sa;pwd=6221131");
             SqlDataAdapter dap = new SqlDataAdapter("Corss", con);//创建数据适配器
             dap.SelectCommand.CommandType =//设置命令为存储过程
                 CommandType.StoredProcedure;

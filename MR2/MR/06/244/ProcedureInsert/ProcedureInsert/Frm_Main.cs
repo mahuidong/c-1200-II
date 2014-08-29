@@ -34,7 +34,7 @@ namespace ProcedureInsert
         private void CreateProcedure()
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-                @"server=WIN-GI7E47AND9R\LS;database=db_TomeTwo;uid=sa;pwd=");
+                @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL查询字符串
                 @"SELECT CASE WHEN EXISTS
 (SELECT * FROM sysobjects WHERE id=object_id('dbo.proc_InsertStudent') 
@@ -132,7 +132,7 @@ values(@学生编号,@学生姓名,@性别,@出生年月,@年龄,@所在学院,@
         private void btn_Remove_Click(object sender, EventArgs e)
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-@"server=WIN-GI7E47AND9R\LS;database=db_TomeTwo;uid=sa;pwd=");
+@"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL字符串
                 @"SELECT CASE WHEN EXISTS
 (SELECT * FROM sysobjects WHERE id=object_id('dbo.proc_InsertStudent') 
@@ -166,7 +166,7 @@ END");
         private DataTable GetMessage()
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-                @"server=WIN-GI7E47AND9R\LS;database=db_TomeTwo;uid=sa;pwd=");
+                @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL查询字符串
                 @"SELECT * FROM tb_Student");
             SqlDataAdapter P_SqlDataAdapter = new SqlDataAdapter(//创建数据适配器

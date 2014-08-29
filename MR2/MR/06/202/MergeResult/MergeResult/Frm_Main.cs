@@ -35,7 +35,7 @@ namespace MergeResult
         private DataTable GetTable()
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-                @"server=(local);database=db_TomeTwo;uid=sa;pwd=6221131");
+                @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL查询字符串
                 @"SELECT 顾客编号 AS 编号,顾客姓名 AS 姓名,所在城市,邮编 FROM tb_Buyer
 UNION SELECT 雇员编号,雇员名称,家庭住址,邮编 FROM tb_Salesman");
@@ -53,7 +53,7 @@ UNION SELECT 雇员编号,雇员名称,家庭住址,邮编 FROM tb_Salesman");
         private DataTable GetMessage()
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-                @"server=(local);database=db_TomeTwo;uid=sa;pwd=6221131");
+                @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL查询字符串
                 "select * from tb_Salesman, tb_Buyer");
             SqlDataAdapter P_SqlDataAdapter = new SqlDataAdapter(//创建数据适配器

@@ -34,7 +34,7 @@ namespace UseMAX
         private DataTable GetEmployee()
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-                @"server=(local);database=db_TomeTwo;uid=sa;pwd=6221131");
+                @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL查询字符串
                 "SELECT * FROM tb_SellWare WHERE 销售额 IN(SELECT MAX(销售额) FROM tb_SellWare)");
             SqlDataAdapter P_SqlDataAdapter = new SqlDataAdapter(//创建数据适配器
@@ -51,7 +51,7 @@ namespace UseMAX
         private DataTable GetMessage()
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-                @"server=(local);database=db_TomeTwo;uid=sa;pwd=6221131");
+                @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL查询字符串
                 "SELECT * FROM tb_SellWare");
             SqlDataAdapter P_SqlDataAdapter = new SqlDataAdapter(//创建数据适配器

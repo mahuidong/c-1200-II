@@ -30,7 +30,7 @@ namespace ColumnAdd
         private DataTable GetMessage()
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-                @"server=(local);database=db_TomeTwo;uid=sa;pwd=6221131");
+                @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL查询字符串
                 "SELECT 学生编号,学生姓名,高数+外语 AS 高数加外语的分数 FROM tb_Grade");
             SqlDataAdapter P_SqlDataAdapter = new SqlDataAdapter(//创建数据适配器

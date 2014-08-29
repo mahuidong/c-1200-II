@@ -31,7 +31,7 @@ namespace UseLen
         private DataTable GetCount(string str)
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-                @"server=(local);database=db_TomeTwo;uid=sa;pwd=6221131");
+                @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL查询字符串
                 @"SELECT friendname AS 字符串, (LEN(friendname)
 -LEN(REPLACE(friendname,'{0}','')))/LEN('{0}') as 

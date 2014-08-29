@@ -54,7 +54,7 @@ namespace UseNot
         private DataTable GetStudent(string SQL)
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-                @"server=(local);database=db_TomeTwo;uid=sa;pwd=6221131");
+                @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
             SqlDataAdapter P_SqlDataAdapter = new SqlDataAdapter(//创建数据适配器
                 SQL, P_Str_ConnectionStr);
             DataTable P_dt = new DataTable();//创建数据表

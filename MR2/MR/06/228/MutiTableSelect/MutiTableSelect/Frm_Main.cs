@@ -29,7 +29,7 @@ namespace MutiTableSelect
         private DataTable GetStudent()
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-                @"server=WIN-GI7E47AND9R\LS;database=db_TomeTwo;uid=sa;pwd=");
+                @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL查询字符串
                 @"SELECT st.学生姓名,st.性别,st.年龄,gr.总分,tc.出勤率 FROM
 tb_Student AS st LEFT OUTER JOIN tb_Grade AS gr ON st.学生编号 = gr.学生编号

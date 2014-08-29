@@ -38,7 +38,7 @@ namespace FindOperator
         private List<StudentField> GetField(string TableName)
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-                @"server=(local);database=db_TomeTwo;uid=sa;pwd=6221131");
+                @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL查询字符串
                 "select c.name from syscolumns c,sysobjects a where a.name='{0}' and a.id=c.id",
                 TableName);
@@ -97,7 +97,7 @@ namespace FindOperator
         private DataTable GetStudent(string SQL)
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-                @"server=(local);database=db_TomeTwo;uid=sa;pwd=6221131");
+                @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
             SqlDataAdapter P_SqlDataAdapter = new SqlDataAdapter(//创建数据适配器
                 SQL, P_Str_ConnectionStr);
             DataTable P_dt = new DataTable();//创建数据表
@@ -112,7 +112,7 @@ namespace FindOperator
         private DataTable GetMessage()
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-                @"server=(local);database=db_TomeTwo;uid=sa;pwd=6221131");
+                @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL查询字符串
                 "SELECT * FROM tb_Student");
             SqlDataAdapter P_SqlDataAdapter = new SqlDataAdapter(//创建数据适配器

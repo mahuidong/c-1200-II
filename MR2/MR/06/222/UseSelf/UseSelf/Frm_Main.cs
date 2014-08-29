@@ -34,7 +34,7 @@ namespace UseSelf
         private DataTable GetStudent()
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-                @"server=LVSHUANG\SHJ;database=db_TomeTwo;uid=sa;pwd=");
+                @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL查询字符串
                 @"SELECT st1.* FROM tb_Student AS st1 INNER JOIN tb_Student AS st2
 ON st1.所在学院=st2.所在学院 and st2.学生姓名='李*灵'");
@@ -52,7 +52,7 @@ ON st1.所在学院=st2.所在学院 and st2.学生姓名='李*灵'");
         private DataTable GetMessage()
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-                @"server=LVSHUANG\SHJ;database=db_TomeTwo;uid=sa;pwd=");
+                @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL查询字符串
                 "SELECT * FROM tb_Student");
             SqlDataAdapter P_SqlDataAdapter = new SqlDataAdapter(//创建数据适配器
