@@ -34,7 +34,7 @@ namespace TableName
         private DataTable GetStudent()
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-                @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
+                @"server=(local);database=db_TomeTwo;uid=sa;Pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL查询字符串
                 @"SELECT S.学生编号,S.学生姓名,M.高数,M.外语,M.马经,S.所在学院 FROM
 tb_Student AS S,tb_Grade AS M where S.学生编号 = M.学生编号 AND S.所在学院 = '计算机学院'");
@@ -52,7 +52,7 @@ tb_Student AS S,tb_Grade AS M where S.学生编号 = M.学生编号 AND S.所在
         private DataTable GetMessage()
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-                @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
+                @"server=(local);database=db_TomeTwo;uid=sa;Pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL查询字符串
                 "select * from tb_Student,tb_Grade where tb_Student.学生编号=tb_Grade.学生编号");
             SqlDataAdapter P_SqlDataAdapter = new SqlDataAdapter(//创建数据适配器

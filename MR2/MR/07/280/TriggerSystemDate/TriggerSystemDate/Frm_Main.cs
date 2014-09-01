@@ -25,7 +25,7 @@ namespace TriggerSystemDate
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection("Data Source=WIN-GI7E47AND9R\\LS;Database=db_TomeTwo;Uid=sa;Pwd=");	//连接数据库
+            SqlConnection con = new SqlConnection("Data Source=(local);Database=db_TomeTwo;Uid=sa;Pwd=6221131");	//连接数据库
             con.Open();//打开连接的数据库
             SqlCommand cmd = new SqlCommand("update 系统管理员表 set 用户名称='" + textBox1.Text + "',密码='" + textBox2.Text + "'", con);//建立SQL语句与数据库的连接
             cmd.ExecuteNonQuery();//执行SQL语句

@@ -20,7 +20,7 @@ namespace HideTransaction
 
         private void Frm_Main_Load(object sender, EventArgs e)
         {
-            string strConn = "Data Source=WIN-GI7E47AND9R\\LS;Database=db_TomeTwo;uid=sa;pwd =;";//设置数据连接字符串
+            string strConn = "Data Source=(local);Database=db_TomeTwo;uid=sa;pwd =;";//设置数据连接字符串
             SqlConnection sqlConn = new SqlConnection(strConn);//创建数据连接
             SqlCommand sqlCmd = new SqlCommand();//创建命令执行对象
             sqlCmd.Connection = sqlConn;//设置命令对象的连接

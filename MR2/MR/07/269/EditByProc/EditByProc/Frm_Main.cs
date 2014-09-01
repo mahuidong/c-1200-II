@@ -18,7 +18,7 @@ namespace EditByProc
         }
 
         #region 定义全局变量及对象
-        string strCon = "Data Source=WIN-GI7E47AND9R\\LS;Database=db_TomeTwo;Uid=sa;Pwd=;";
+        string strCon = "Data Source=(local);Database=db_TomeTwo;Uid=sa;Pwd=6221131"";
         SqlConnection sqlcon;
         SqlCommand sqlcmd;
         SqlDataAdapter sqlda;

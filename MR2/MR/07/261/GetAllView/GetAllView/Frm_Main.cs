@@ -19,7 +19,7 @@ namespace GetAllView
 
         private void Frm_Main_Load(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection("Data Source=WIN-GI7E47AND9R\\LS;Database=db_TomeTwo;Uid=sa;Pwd=");//连接数据库
+            SqlConnection con = new SqlConnection("Data Source=(local);Database=db_TomeTwo;Uid=sa;Pwd=6221131");//连接数据库
             //获取所有视图
             SqlDataAdapter dap = new SqlDataAdapter("select name as 视图名称,crdate as 创建日期,refDate as 最后修改时间 from sysobjects where xtype='v'", con);
             DataSet ds = new DataSet();//创建DataSet对象

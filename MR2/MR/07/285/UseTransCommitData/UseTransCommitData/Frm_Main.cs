@@ -20,7 +20,7 @@ namespace UseTransCommitData
         private void Frm_Main_Load(object sender, EventArgs e)
         {
             //创建数据库连接对象
-            SqlConnection sqlConn = new SqlConnection("Data Source=WIN-GI7E47AND9R\\LS;Database=db_TomeTwo;uid=sa;pwd =;");
+            SqlConnection sqlConn = new SqlConnection("Data Source=(local);Database=db_TomeTwo;uid=sa;pwd =;");
             List<String> strSqls = new List<string>();//创建集合对象
             String strDelete1 = "delete From tb_Author Where AuthorId = '99'";//定义删除第一个表的SQL语句
             strSqls.Add(strDelete1);//将SQL语句添加到集合中

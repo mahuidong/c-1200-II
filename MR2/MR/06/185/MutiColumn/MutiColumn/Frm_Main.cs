@@ -35,7 +35,7 @@ namespace MutiColumn
         private DataTable GetDepot()
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-                @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
+                @"server=(local);database=db_TomeTwo;uid=sa;Pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL查询字符串
                 @"SELECT 存放位置,书名,SUM(库存数量) AS 合计库存数量  FROM
 tb_Depot GROUP BY 存放位置,书名 ORDER BY SUM(库存数量) DESC");
@@ -53,7 +53,7 @@ tb_Depot GROUP BY 存放位置,书名 ORDER BY SUM(库存数量) DESC");
         private DataTable GetMessage()
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-                @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
+                @"server=(local);database=db_TomeTwo;uid=sa;Pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL查询字符串
                 "SELECT * FROM tb_Depot");
             SqlDataAdapter P_SqlDataAdapter = new SqlDataAdapter(//创建数据适配器

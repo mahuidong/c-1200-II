@@ -39,7 +39,7 @@ namespace SortResult
         private DataTable Ascending()
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-                @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
+                @"server=(local);database=db_TomeTwo;uid=sa;Pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL查询字符串
                 @"SELECT 年龄 AS 信息 FROM tb_Student UNION 
 SELECT 总分 FROM tb_grade UNION SELECT 课程编号 FROM tb_course ORDER BY 信息 ASC");
@@ -57,7 +57,7 @@ SELECT 总分 FROM tb_grade UNION SELECT 课程编号 FROM tb_course ORDER BY �
         private DataTable Descending()
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-                @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
+                @"server=(local);database=db_TomeTwo;uid=sa;Pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL查询字符串
                 @"SELECT 年龄 AS 信息 FROM tb_Student UNION 
 SELECT 总分 FROM tb_grade UNION SELECT 课程编号 FROM tb_course ORDER BY 信息 DESC");
@@ -75,7 +75,7 @@ SELECT 总分 FROM tb_grade UNION SELECT 课程编号 FROM tb_course ORDER BY �
         private DataTable GetMessage()
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-                @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
+                @"server=(local);database=db_TomeTwo;uid=sa;Pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL查询字符串
                 "SELECT 年龄 FROM tb_Student union select 总分 from tb_grade union select 课程编号 from tb_course");
             SqlDataAdapter P_SqlDataAdapter = new SqlDataAdapter(//创建数据适配器

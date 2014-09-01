@@ -20,7 +20,7 @@ namespace StaticTable
         private void Frm_Main_Load(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(//创建数据库连接对象
-@"Server=(local)\sqlexpress;database=db_TomeTwo;Uid=sa;pwd=6221131");
+@"Server=(local);database=db_TomeTwo;Uid=sa;Pwd=6221131");
             SqlDataAdapter dap = new SqlDataAdapter(//创建数据适配器
                 "SELECT * FROM tb_VenditionInfo", con);
             DataSet ds = new DataSet();//设置数据集
@@ -32,7 +32,7 @@ namespace StaticTable
         private void btn_Name_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(//创建数据库连接对象
-@"Server=(local)\sqlexpress;database=db_TomeTwo;Uid=sa;pwd=6221131");
+@"Server=(local);database=db_TomeTwo;Uid=sa;Pwd=6221131");
             SqlDataAdapter dap = new SqlDataAdapter(//创建数据适配器
 @"SELECT 所在部门, SUM(CASE 员工姓名 WHEN '李金明' THEN
 销售业绩 ELSE NULL END)AS [李金明],SUM(CASE 员工姓名 WHEN
@@ -51,7 +51,7 @@ tb_VenditionInfo GROUP BY 所在部门", con);
         private void btn_Department_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(//创建数据库连接对象
-@"Server=(local)\sqlexpress;database=db_TomeTwo;Uid=sa;pwd=6221131");
+@"Server=(local);database=db_TomeTwo;Uid=sa;Pwd=6221131");
             SqlDataAdapter dap = new SqlDataAdapter(//创建数据适配器
 @"SELECT 员工姓名, SUM(CASE 所在部门 WHEN '食品部' THEN
 销售业绩 ELSE NULL END) AS [食品部业绩],SUM(CASE

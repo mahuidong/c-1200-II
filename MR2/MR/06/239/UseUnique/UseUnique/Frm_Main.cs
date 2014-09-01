@@ -20,7 +20,7 @@ namespace UseUnique
         private void btn_Create_Click(object sender, EventArgs e)
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-    @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
+    @"server=(local);database=db_TomeTwo;uid=sa;Pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL字符串
                 @"CREATE UNIQUE INDEX index_Student
 ON tb_Student(学生编号)");
@@ -48,7 +48,7 @@ ON tb_Student(学生编号)");
         private void btn_Delete_Click(object sender, EventArgs e)
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-@"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
+@"server=(local);database=db_TomeTwo;uid=sa;Pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL字符串
                 @"DROP INDEX tb_Student.index_Student");
             SqlConnection P_sc = new SqlConnection(P_Str_ConnectionStr);//创建数据库连接对象

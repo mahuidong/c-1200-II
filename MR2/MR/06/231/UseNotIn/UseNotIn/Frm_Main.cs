@@ -31,7 +31,7 @@ namespace UseNotIn
         private DataTable GetStudent(string Begin, string end)
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-                @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
+                @"server=(local);database=db_TomeTwo;uid=sa;Pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL查询字符串
                 @"SELECT 学生姓名,性别,年龄 FROM tb_Student WHERE 学生编号 NOT IN 
 (SELECT 学生编号 FROM tb_Grade WHERE 总分>{0} AND 总分<{1})", Begin, end);

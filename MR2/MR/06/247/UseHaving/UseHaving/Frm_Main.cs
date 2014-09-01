@@ -34,7 +34,7 @@ namespace UseHaving
         private DataTable GetGrade()
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-                @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
+                @"server=(local);database=db_TomeTwo;uid=sa;Pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL查询字符串
                 @"SELECT 所在学院,COUNT(*) AS 人数,MAX(高数) AS 最高成绩,AVG(高数) AS 高数平均成绩 
 FROM
@@ -58,7 +58,7 @@ HAVING AVG(高数) > 60");
         private DataTable GetMessage()
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-                @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
+                @"server=(local);database=db_TomeTwo;uid=sa;Pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL查询字符串
                 "SELECT * FROM tb_Student");
             SqlDataAdapter P_SqlDataAdapter = new SqlDataAdapter(//创建数据适配器

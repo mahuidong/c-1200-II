@@ -23,7 +23,7 @@ namespace BatchOperByTrans
         private void Form1_Load(object sender, EventArgs e)
         {
             //实例化数据库连接对象
-            m_Conn = new SqlConnection("Data Source=WIN-GI7E47AND9R\\LS;Database=db_TomeTwo;Uid=sa;Pwd=;");
+            m_Conn = new SqlConnection("Data Source=(local);Database=db_TomeTwo;Uid=sa;Pwd=6221131"");
             m_Cmd = new SqlCommand();//实例化执行SQL命令对象
             BindDataGridView("");//对DataGridView控件进行数据绑定
         }

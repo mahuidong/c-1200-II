@@ -19,7 +19,7 @@ namespace UseProc
 
         private void Frm_Main_Load(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection("Data Source=WIN-GI7E47AND9R\\LS;Database=db_TomeTwo;Uid=sa;Pwd=");//连接数据库
+            SqlConnection con = new SqlConnection("Data Source=(local);Database=db_TomeTwo;Uid=sa;Pwd=6221131");//连接数据库
             SqlDataAdapter dap = new SqlDataAdapter("getAllEmployee", con);//指定存储过程名称 
             DataSet ds = new DataSet();//创建DataSet对象
             dap.Fill(ds);//填充DataSet数据集

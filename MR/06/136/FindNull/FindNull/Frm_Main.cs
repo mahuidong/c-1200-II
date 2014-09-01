@@ -34,7 +34,7 @@ namespace FindNull
         private DataTable GetMessage()
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-                @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
+                @"server=(local);database=db_TomeTwo;uid=sa;Pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL查询字符串
                 "SELECT 学生姓名,年龄,性别,家庭住址 FROM tb_Student");
             SqlDataAdapter P_SqlDataAdapter = new SqlDataAdapter(//创建数据适配器
@@ -50,7 +50,7 @@ namespace FindNull
         private DataTable GetNullOrEmptyMessage()
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-                @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
+                @"server=(local);database=db_TomeTwo;uid=sa;Pwd=6221131");
             string P_Str_SqlStr = string.Format(//创建SQL查询字符串
                 "SELECT 学生姓名,年龄,性别,家庭住址 FROM tb_Student WHERE 家庭住址 IS NULL OR 家庭住址=''");
             SqlDataAdapter P_SqlDataAdapter = new SqlDataAdapter(//创建数据适配器

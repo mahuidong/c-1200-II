@@ -29,7 +29,7 @@ namespace UseFunc
         private DataTable GetMessage(string count)
         {
             string P_Str_ConnectionStr = string.Format(//创建数据库连接字符串
-                @"server=(local)\sqlexpress;database=db_TomeTwo;uid=sa;pwd=6221131");
+                @"server=(local);database=db_TomeTwo;uid=sa;Pwd=6221131");
             string P_Str_SqlStr = string.Format(
                 "SELECT 学生编号,学生姓名,年龄,性别 FROM tb_Student where LEN(学生姓名)={0}",
                 count);

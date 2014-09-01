@@ -23,7 +23,7 @@ namespace EditByView
         SqlDataAdapter sqlda;       //声明数据桥接器对象
         DataSet myds;               //声明数据集对象
         //定义数据库连接字符串
-        string strCon = "Data Source=WIN-GI7E47AND9R\\LS;Database=db_TomeTwo;uid=sa;pwd=;";
+        string strCon = "Data Source=(local);Database=db_TomeTwo;uid=sa;Pwd=6221131"";
         #endregion
 
         private void Frm_Main_Load(object sender, EventArgs e)
