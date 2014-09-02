@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{4507DCDD-6F4B-4730-8D96-30D52571EDD0}</ProjectGuid>
+    <ProjectGuid>{3D13B835-CA52-44A8-8BE4-EF3C2AAD0295}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BackImage</RootNamespace>
