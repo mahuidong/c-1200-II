@@ -18,7 +18,7 @@ namespace FindTopFive
         }
 
         #region 定义全局变量及对象
-        string strCon = "Data Source=WIN-GI7E47AND9R\\LS;Database=db_TomeTwo;Uid=sa;Pwd=;";//定义数据库连接字符串
+        string strCon = "Data Source=(local);Database=db_TomeTwo;Uid=sa;Pwd=;";//定义数据库连接字符串
         SqlConnection sqlcon;//声明SqlConnection对象
         SqlDataAdapter sqlda;//声明SqlDataAdapter对象
         DataSet myds;//声明DataSet数据集对象

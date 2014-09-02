@@ -19,7 +19,7 @@ namespace OperateElementByLinq
 
         private void Frm_Main_Load(object sender, EventArgs e)
         {
-            string ConnectionString = "server=WIN-GI7E47AND9R\\LS; database=db_TomeTwo; uid=sa; pwd=";//声明连接字符串
+            string ConnectionString = "server=(local); database=db_TomeTwo; uid=sa; pwd=6221131";//声明连接字符串
             using (SqlConnection Conn = new SqlConnection(ConnectionString))//创建数据库连接对象
             {
                 string sqlstr = "select * from tb_Register";//定义查询语句

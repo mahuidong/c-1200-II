@@ -17,7 +17,7 @@ namespace AddDataByLINQ
         }
 
         //定义数据库连接字符串
-        string strCon = "Data Source=WIN-GI7E47AND9R\\LS;Database=db_TomeTwo;Uid=sa;Pwd=;";
+        string strCon = "Data Source=(local);Database=db_TomeTwo;Uid=sa;Pwd=;";
         linqtosqlDataContext linq; //创建Linq连接对象
         private void Form1_Activated(object sender, EventArgs e)
         {

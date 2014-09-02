@@ -19,7 +19,7 @@ namespace GetConnectionInfo
         private void Frm_Main_Load(object sender, EventArgs e)
         {
             //从配置文件中取连接字符串
-            string conStr = "Data Source=WIN-GI7E47AND9R\\LS;Database=db_TomeTwo;UID=sa;Pwd=;";
+            string conStr = "Data Source=(local);Database=db_TomeTwo;UID=sa;Pwd=;";
             DataClassesDataContext dc = new DataClassesDataContext(conStr);//创建数据上下文实例
             System.Data.Common.DbConnection con = dc.Connection;//获取其连接
             con.Open();//打开连接

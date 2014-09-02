@@ -51,7 +51,7 @@ namespace RevertDataBase
             string path = this.txt_Path.Text; //得到备份路径及数据库名称
             string dbname = this.cbox_DataBase.Text;//得到将要还原的数据库名称
             string SqlStr1 = //创建数据库连接字符串
-@"Server=(local);database='" + this.cbox_DataBase.Text + "';Uid=sa;Pwd=";
+@"Server=(local);database='" + this.cbox_DataBase.Text + "';Uid=sa;pwd=6221131";
             string SqlStr2 =//创建SQL查询语句
                 "use master restore database " + dbname + " from disk='" + path + "'";
             using (SqlConnection con = new SqlConnection(SqlStr1))//创建数据库连接对象

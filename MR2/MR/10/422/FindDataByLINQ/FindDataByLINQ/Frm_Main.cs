@@ -17,7 +17,7 @@ namespace FindDataByLINQ
         }
         #region 定义公共变量及Linq连接对象
         //定义数据库连接字符串
-        string strCon = "Data Source=WIN-GI7E47AND9R\\LS;Database=db_TomeTwo;Uid=sa;Pwd=;";
+        string strCon = "Data Source=(local);Database=db_TomeTwo;Uid=sa;Pwd=;";
         linqtosqlDataContextDataContext linq; //创建Linq连接对象
         #endregion
         private void Form1_Load(object sender, EventArgs e)
