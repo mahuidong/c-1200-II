@@ -31,27 +31,27 @@ namespace RDLC_Demo
 
         private void button1_Click(object sender, EventArgs e)
         {
-             LocalReport report = new LocalReport();
-             //设置需要打印的报表的文件名称。
-             report.ReportPath = @"c:\PrintMe.rdlc";
-             //创建要打印的数据源
-             ReportDataSource source = new ReportDataSource(SourceTalbe.TableName, SourceTalbe);
-             report.DataSources.Add(source);
-             //刷新报表中的需要呈现的数据
-             report.Refresh();
-           string deviceInfo =
-            "<DeviceInfo>" +
-            "  <OutputFormat>EMF</OutputFormat>" +
-            "  <PageWidth>8.5in</PageWidth>" +
-            "  <PageHeight>11in</PageHeight>" +
-            "  <MarginTop>0.25in</MarginTop>" +
-            "  <MarginLeft>0.25in</MarginLeft>" +
-            "  <MarginRight>0.25in</MarginRight>" +
-            "  <MarginBottom>0.25in</MarginBottom>" +
-            "</DeviceInfo>";
-            Warning[] warnings;
-            //将报表的内容按照deviceInfo指定的格式输出到CreateStream函数提供的Stream中。
-            report.Render("Image", deviceInfo, CreateStream, out warnings);
+           //  LocalReport report = new LocalReport();
+           //  //设置需要打印的报表的文件名称。
+           //  report.ReportPath = @"c:\PrintMe.rdlc";
+           //  //创建要打印的数据源
+           //  ReportDataSource source = new ReportDataSource(SourceTalbe.TableName, SourceTalbe);
+           //  report.DataSources.Add(source);
+           //  //刷新报表中的需要呈现的数据
+           //  report.Refresh();
+           //string deviceInfo =
+           // "<DeviceInfo>" +
+           // "  <OutputFormat>EMF</OutputFormat>" +
+           // "  <PageWidth>8.5in</PageWidth>" +
+           // "  <PageHeight>11in</PageHeight>" +
+           // "  <MarginTop>0.25in</MarginTop>" +
+           // "  <MarginLeft>0.25in</MarginLeft>" +
+           // "  <MarginRight>0.25in</MarginRight>" +
+           // "  <MarginBottom>0.25in</MarginBottom>" +
+           // "</DeviceInfo>";
+          //  Warning[] warnings;
+           // //将报表的内容按照deviceInfo指定的格式输出到CreateStream函数提供的Stream中。
+           // report.Render("Image", deviceInfo, CreateStream, out warnings);
             
             
         }
