@@ -95,8 +95,8 @@ SELECT k.书号,k.书名,x.作者, SUM(k.现存数量) AS
 现存数量 ,SUM(x.销售数量) AS 销售数量 FROM tb_Vendition AS x ,
 tb_BookMessage AS k where x.书号=k.书号  GROUP BY k.书号,
 k.书名,x.作者, k.现存数量 ORDER BY 书号;--186
-SELECT * FROM tb_Employee ORDER BY 所属部门 COMPUTE SUM(工资);--187
-SELECT * FROM tb_Employee ORDER BY 所属部门 COMPUTE SUM(工资) BY 所属部门;--188
+SELECT * FROM tb_Employee ORDER BY 所属部门 COMPUTE SUM(工资);--187	总计
+SELECT * FROM tb_Employee ORDER BY 所属部门 COMPUTE SUM(工资) BY 所属部门;--188	分组总计
 
 --6.12 聚合函数
 SELECT SUM(销售数量) AS 总数量 ,SUM(金额) AS 总金额 FROM tb_Book;--189

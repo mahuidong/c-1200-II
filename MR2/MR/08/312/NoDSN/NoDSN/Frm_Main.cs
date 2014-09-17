@@ -30,6 +30,10 @@ namespace NoDSN
                 da.Fill(dt);//填充数据表
                 this.dgv_Message.DataSource =//设置数据源
                     dt.DefaultView;
+
+                string sql = @"select * into [Excel 8.0;database=" + @"C:\123.xlsx].[Sheet1] from 帐单";
+                OdbcCommand cmm = new OdbcCommand(sql,odbcCon);
+                cmm.ExecuteNonQuery();
             }
             catch (Exception ey)//捕获异常
             {
