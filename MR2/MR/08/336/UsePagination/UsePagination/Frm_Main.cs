@@ -109,5 +109,10 @@ namespace UsePagination
             int a = Convert.ToInt32(this.label4.Text) * 4 - 4;//得到记录数索引
             show(a, 4);//显示数据记录
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

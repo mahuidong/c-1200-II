@@ -109,7 +109,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(41, 26);
+            this.label2.Location = new System.Drawing.Point(64, 26);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(17, 12);
             this.label2.TabIndex = 6;
@@ -117,11 +117,10 @@
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.Blue;
             this.label3.Location = new System.Drawing.Point(34, 26);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 12);
+            this.label3.Size = new System.Drawing.Size(24, 12);
             this.label3.TabIndex = 7;
             // 
             // label4
@@ -169,15 +168,16 @@
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "选择分页";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // Form1
+            // Frm_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(392, 231);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "Form1";
+            this.Name = "Frm_Main";
             this.Text = "分页显示信息";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

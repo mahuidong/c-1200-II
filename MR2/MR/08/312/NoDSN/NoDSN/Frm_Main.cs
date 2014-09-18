@@ -29,11 +29,7 @@ namespace NoDSN
                 DataTable dt = new DataTable();//创建数据表
                 da.Fill(dt);//填充数据表
                 this.dgv_Message.DataSource =//设置数据源
-                    dt.DefaultView;
-
-                string sql = @"select * into [Excel 8.0;database=" + @"C:\123.xlsx].[Sheet1] from 帐单";
-                OdbcCommand cmm = new OdbcCommand(sql,odbcCon);
-                cmm.ExecuteNonQuery();
+                    dt.DefaultView;               
             }
             catch (Exception ey)//捕获异常
             {
